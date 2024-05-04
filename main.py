@@ -1,7 +1,7 @@
 import argparse
 from pytube import YouTube
-from getVideo import Video
-from getAudio import Audio
+from src import getAudio
+from src import getVideo
 
 parent_directory = r"/home/agdfl/Downloads"
 
