@@ -1,15 +1,20 @@
+import re
+from progressBar import progress
 from pytube import YouTube
+from pytube.cli import on_progress
 from pytube.exceptions import VideoUnavailable
+from pytube.exceptions import VideoRegionBlocked
 
 class Video:
-    def Download(link: str, resolution_type: int, path:str) :
-        yt = YouTube(link)
+    def defaultDownload(link: str, resolution_type: int, path: str):
+        yt = YouTube(link, on_progress_callback=progress)
         stream = yt.streams.get_by_resolution(resolution_type)
+        print(f"Title: {yt.title}")
+        print(f"Meta: {yt.metadata}")
+        print(f"Length: {yt.length}")
         try:
-            print(f"Video title: {yt.title}")
-            print(f"Video resolution: {resolution_type}")
-            stream.download(path)
+            stream.download(output_path=path)
         except VideoUnavailable:
-            print("Unable to download video")
+            print("Error while downloading. Download aborted")
         else:
-            print("Download successfully")
+            print(f"Download completed, video was saved in {path}")
