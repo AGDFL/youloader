@@ -20,9 +20,11 @@ options:
   
   -r N,     --resolution N      Choose the resolution type of video. Pick one of the following 144, 240, 
                                 360, 720.
+  
   -p string,   --path string
                                 Specify where the file is downloaded to, default to
                                 $HOME/Videos. If the folder doesn't existed, it will
                                 be created
+  
   -a string,    --audio string
                                 Download file under mp3 format. NEED ffmpeg in order to work
