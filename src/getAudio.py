@@ -1,12 +1,13 @@
 from pytube import YouTube
 from pytube.cli import on_progress
+from src import progressBar
 from pytube import extract
 import subprocess
 import os
 
 class Audio:
     def audioDownload(link:str, path:str):
-        yt = YouTube(link, on_progress_callback=on_progress)
+        yt = YouTube(link, on_progress_callback=progressBar.progress)
         stream = yt.streams.get_audio_only()
         print(f"Title: {yt.title}")
         print(f"Meta: {yt.metadata}")
@@ -25,4 +26,4 @@ class Audio:
                 '-i', os.path.join(path, default_name),
                 os.path.join(path, newfile_name)
             ])
-            print(f"Download completed, audio was saved in {path}")
+            print(f"Download completed, {newfile_name} was saved in {path}")
