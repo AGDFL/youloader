@@ -1,6 +1,6 @@
 import argparse
 from pytube import YouTube
-from src import getAudio
+from src import getAudio 
 from src import getVideo
 
 parent_directory = r"/home/agdfl/Downloads"
@@ -16,7 +16,7 @@ args = parser.parse_args()
 
 if __name__=="__main__":
     if args.video:
-       Video.defaultDownload(args.video, args.resolution, args.path)
+       getVideo.Video.defaultDownload(args.video, args.resolution, args.path)
     elif args.audio:
-        Audio.audioDownload(args.audio, args.path)
+        getAudio.Audio.audioDownload(args.audio, args.path)
        
