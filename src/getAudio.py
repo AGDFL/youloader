@@ -26,4 +26,9 @@ class Audio:
                 '-i', os.path.join(path, default_name),
                 os.path.join(path, newfile_name)
             ])
+            #subprocess to remove the mp4 file
+            subprocess.run([
+                'rm',
+                os.path.join(path, default_name)
+            ])
             print(f"Download completed, {newfile_name} was saved in {path}")
