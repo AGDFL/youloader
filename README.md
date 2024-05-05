@@ -32,4 +32,4 @@ options:
   
   -a string,    --audio string
                                 
-                                Download file under mp3 format. NEED ffmpeg in order to work
+                                Download file under mp3 format. ffmpeg is required
